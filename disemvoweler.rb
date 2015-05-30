@@ -1,9 +1,19 @@
 class Disemvoweler
-  def disemvowel(string)
-    "llthswhblvnpsychknssrsmyhnd"
+
+  VOWELS = %w(a e i o u)
+
+  def disemvowel(input_string)
+    no_vowels = input_string.gsub(/[aeiou]/, '')
+    no_vowels_or_spaces = no_vowels.gsub(/\s/, '')
   end
 
-  def left_over_vowels
-    "aoeoeieeioieiaiea"
+  def left_over_vowels(input_string)
+    vowel_string = ""
+    input_string.each_char do |c|
+      if VOWELS.include? c
+        vowel_string << c
+      end
+    end
+    vowel_string
   end
 end
